@@ -1,2 +1,2 @@
 # Planner
-Simple todo list app on VueJS
+Simple to do list app on VueJS
