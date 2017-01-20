@@ -1,8 +1,10 @@
-div.todo.todo__container
-    div
-        input.todo__input(v-model="newTodo", @keyup.enter="add", :placeholder="placeholder")
-        button.todo__add(@click="add") Add
-    div.todo__elem(v-for="(item, index) of items")
-            Checkbox(:state="item.checked", v-on:check="check(item)")
-            div.todo__elem_description(:class="{'todo__elem--checked': item.checked}") {{item.title}}
-            span.fa.fa-times.todo__elem_remove(@click="remove(index)")
+.todo
+	.todo__container
+		.todo__input_container
+				input.todo__input(v-model="newTodo", @keyup.enter="add", :placeholder="placeholder")
+				button.button.button__green(@click="add") Add
+		.todo__elements
+			.todo__elem(v-for="(item, index) of items")
+				Checkbox(:state="item.checked", v-on:check="check(item)")
+				.todo__elem_description(:class="{'todo__elem--checked': item.checked}") {{item.title}}
+				span.fa.fa-times.todo__elem_remove(@click="remove(index)")

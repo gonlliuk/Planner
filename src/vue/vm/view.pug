@@ -1,3 +1,9 @@
 div
-	Header(:title="title")
-	TodoList
+	Header(:title="title", :user="user", v-on:signOut="signOut()")
+
+	TodoList(v-if="user")
+
+	.unauth(v-if="!user")
+		span Please sign in to start planing
+		.sign_in
+			button.button.button__green(@click="signIn()") Sign In

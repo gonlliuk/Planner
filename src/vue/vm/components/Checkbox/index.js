@@ -9,7 +9,6 @@ export default {
         },
 
         getCheckboxClass: function() {
-        	console.log(this.state)
         	return this.state ? 'checkbox--checked' : 'checkbox--unchecked'
         }
     }

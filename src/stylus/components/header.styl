@@ -3,11 +3,52 @@
 	width 100%
 	background #41b883
 	
+	position relative
+	
 	display flex
 	justify-content center
 
-.header__title
-	color #fff
-	font 30px GothamProBold
-	padding 10px 0
-	
+	&__title
+		color #fff
+		font 30px GothamProBold
+		padding 10px 0
+		
+	&__sign_info
+		position absolute
+		
+		top: 7px
+		right: 25px
+		
+		display flex
+		
+	&__user
+		
+		box-sizing: border-box;
+		height: 34px;
+		
+		display flex
+		
+		margin-right 20px
+		
+		font 17px Circe
+		color #fff
+		
+		img
+			box-sizing border-box
+			
+			width 34px
+			height 34px
+			
+			border none
+			border-radius 50%
+		
+		&_photo
+			margin-right 10px
+			
+		&_name
+			display flex
+			flex-direction column
+			justify-content space-around
+			
+			margin-right 20px
+		

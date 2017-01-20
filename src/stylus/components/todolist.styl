@@ -1,12 +1,20 @@
+@import '../helpers.styl'
+
 .todo
 	font-family Circe
+	display flex
+	justify-content space-around
 	
 	&__container
-		width 25%
-		min-width 364px
-
-		margin auto
 		margin-top 25px
+		display flex
+		flex-direction column
+		justify-content flex-start
+		
+		width 364px
+		
+	&__input_container
+		width 100%
 
 	&__elem
 
@@ -63,23 +71,6 @@
 		&:hover,
 		&:focus
 			border-color #c0c0c0
-	
-	&__add
-		padding 8px 12px
-		
-		box-sizing border-box
-		height 34px
-		
-		font-size 15px
-		color #fff
-		
-		background #41b883
-		border none
-		
-		outline none
-		
-		&:hover
-			background #39a575
 
 	
 	
