@@ -17,6 +17,7 @@ export function signIn({commit}) {
 export function signOut({commit}) {
 	firebase.auth().signOut().then(() => {
 		commit(actions.setUser, {})
+		commit(actions.setTodoList, {})
 	})
 }
 
