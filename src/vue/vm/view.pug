@@ -1,9 +1,7 @@
 div
-	Header(:title="title", :user="user", v-on:signOut="signOut()")
+	Header(:title="title")
 
-	TodoList(v-if="user")
+	TodoList(v-if="user.uid")
 
-	.unauth(v-if="!user")
+	.unauth(v-show="!user.uid")
 		span Please sign in to start planing
-		.sign_in
-			button.button.button__green(@click="signIn()") Sign In

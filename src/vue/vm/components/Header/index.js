@@ -1,18 +1,13 @@
 import view from './view.pug'
-import firebase from 'firebase'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
 	template: view,
-	props: ['title', 'user'],
+	props: ['title'],
 	computed: {
+		...mapGetters(['user'])
 	},
 	methods: {
-		signOut: function() {
-			const _this = this;
-			firebase.auth().signOut().then( () => {
-				_this.$emit('signOut')
-			})
-
-		}
+		...mapActions(['signIn', 'signOut'])
 	}
 }

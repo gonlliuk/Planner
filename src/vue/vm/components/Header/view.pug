@@ -1,10 +1,11 @@
 .header
 	.header__title {{ title }}
 	.header__sign_info
-		.header__user(v-if="user")
+		.header__user(v-if="user.uid")
 			.header__user_photo
 				img(:src="user.photoURL")
 			.header__user_name
 				span {{ user.displayName }}
-			.header__sign_out_button
-				button.button.button__white(v-if="user", @click="signOut()") Sign Out
+		.header__sign_out_button
+			button.button.button__white(v-if="!user.uid", @click="signIn") Sign in
+			button.button.button__white(v-if="user.uid", @click="signOut") Sign out
