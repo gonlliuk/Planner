@@ -9,20 +9,27 @@ export default new Vuex.Store({
 	strict: true,
 
 	state: {
-		user: {}
+		user: {},
+		todoList: []
 	},
 
 	getters: {
-		user: state => ({ ...state.user })
+		user: state => ({ ...state.user }),
+		todoList: state => [...state.todoList]
 	},
 
 	actions: {
 		getUser: actions.getUser,
 		signIn: actions.signIn,
 		signOut: actions.signOut,
+		addTodo: actions.addTodo,
+		updateTodo: actions.updateTodo,
+		removeTodo: actions.removeTodo,
+		getTodoList: actions.getTodoList,
 	},
 
 	mutations: {
 		setUser: mutations.setUser,
+		setTodoList: mutations.setTodoList,
 	}
 })

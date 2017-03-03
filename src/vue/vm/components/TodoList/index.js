@@ -1,29 +1,40 @@
 import view from'./view.pug'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     template: view,
     data: function() {
         return {
-            items: [],
             newTodo: '',
             placeholder: 'plan some staff to do'
         }
     },
+    computed: {
+        ...mapGetters(['todoList'])
+    },
     methods: {
-        add: function() {
-            this.newTodo !== '' && this.items.unshift({
-                title: this.newTodo,
-                checked: false
+        ...mapActions(['addTodo', 'updateTodo', 'removeTodo']),
+
+        add() {
+            this.addTodo({
+                userId: this.$store.state.user.uid,
+                todo: {title: this.newTodo, date: new Date()}
             })
             this.newTodo = ''
         },
 
-        remove: function(index) {
-            this.items.splice(index, 1)
+        remove(item) {
+            this.removeTodo({
+                userId: this.$store.state.user.uid,
+                todo: item
+            })
         },
 
-        check: function(item) {
-            item.checked = !item.checked
+        check(item) {
+            this.updateTodo({
+                userId: this.$store.state.user.uid,
+                todo: Object.assign({}, item, {checked: !item.checked})
+            })
         }
     }
 }

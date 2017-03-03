@@ -4,7 +4,7 @@
 				input.todo__input(v-model="newTodo", @keyup.enter="add", :placeholder="placeholder")
 				button.button.button__green(@click="add") Add
 		.todo__elements
-			.todo__elem(v-for="(item, index) of items")
+			.todo__elem(v-for="(item, index) of todoList")
 				Checkbox(:state="item.checked", v-on:check="check(item)")
 				.todo__elem_description(:class="{'todo__elem--checked': item.checked}") {{item.title}}
-				span.fa.fa-times.todo__elem_remove(@click="remove(index)")
+				span.fa.fa-times.todo__elem_remove(@click="remove(item)")

@@ -25,9 +25,14 @@ new Vue({
         ...mapGetters(['user'])
     },
     methods: {
-        ...mapActions(['getUser'])
+        ...mapActions(['getUser', 'getTodoList'])
     },
     beforeMount() {
+        const _this = this
         this.getUser()
+        this.$store.subscribe(function(mutation, state) {
+            if (mutation.type === 'setUser')
+                _this.getTodoList(state.user.uid)
+        })
     }
 })
