@@ -19,7 +19,8 @@ const options = {
         modulesDirectories: ['node_modules', 'src'],
         extensions: ['', '.js'],
         alias: {
-            'vue$': 'vue/dist/vue.common.js'
+            'vue$': 'vue/dist/vue.common.js',
+            'img': path.resolve('./src/assets/img/')
         }
     },
     plugins: [

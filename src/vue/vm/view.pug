@@ -4,4 +4,8 @@ div
 	TodoList(v-if="user.uid")
 
 	.unauth(v-show="!user.uid")
-		span Please sign in to start planing
+		span Please sign in to start planning
+
+	.preloader(v-show="loading")
+		.preloader__img_container
+			img.preloader__img(src="img/preloader.gif")

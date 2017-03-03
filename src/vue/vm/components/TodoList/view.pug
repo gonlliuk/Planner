@@ -1,7 +1,7 @@
 .todo
 	.todo__container
 		.todo__input_container
-				input.todo__input(v-model="newTodo", @keyup.enter="add", :placeholder="placeholder")
+				input.todo__input(v-model="newTodo", @keyup.enter="add", :placeholder="placeholder", :maxlength="maxLength")
 				button.button.button__green(@click="add") Add
 		.todo__elements
 			.todo__elem(v-for="(item, index) of todoList")

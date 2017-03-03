@@ -18,7 +18,8 @@ new Vue({
     store: store,
     data() {
     	return {
-            title: 'Planner'
+            title: 'Planner',
+            loading: true,
         }
     },
     computed: {
@@ -31,8 +32,14 @@ new Vue({
         const _this = this
         this.getUser()
         this.$store.subscribe(function(mutation, state) {
-            if (mutation.type === 'setUser')
-                _this.getTodoList(state.user.uid)
+            switch (mutation.type) {
+                case 'setUser':
+                    state.user.uid ? _this.getTodoList(state.user.uid) : _this.loading = false
+                    break
+                case 'setTodoList':
+                    _this.loading = false
+                    break
+            }
         })
     }
 })

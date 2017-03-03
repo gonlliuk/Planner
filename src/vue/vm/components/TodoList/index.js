@@ -6,7 +6,8 @@ export default {
     data: function() {
         return {
             newTodo: '',
-            placeholder: 'plan some staff to do'
+            maxLength: 90,
+            placeholder: 'write something here'
         }
     },
     computed: {
@@ -16,6 +17,11 @@ export default {
         ...mapActions(['addTodo', 'updateTodo', 'removeTodo']),
 
         add() {
+            if (this.newTodo.trim() === '') {
+                this.newTodo = ''
+                return
+            }
+
             this.addTodo({
                 userId: this.$store.state.user.uid,
                 todo: {title: this.newTodo, date: new Date()}
