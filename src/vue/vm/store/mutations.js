@@ -1,21 +1,25 @@
-export function setUser(state, user) {
-	state.user = { 
-		uid: user.uid,
-		photoURL: user.photoURL,
-		displayName: user.displayName,
-		email: user.email 
-	}
-}
+import * as actions from './constants'
 
-export function addTodo(state, todo) {
-	state.todoList.push(todo)
-}
+export default {
+	[actions.setUser](state, user) {
+		state.user = { 
+			uid: user.uid,
+			photoURL: user.photoURL,
+			displayName: user.displayName,
+			email: user.email 
+		}
+	},
 
-export function setTodoList(state, todoList) {
-	let list = []
-	for (let key in todoList) {
-		list.push(todoList[key])
+	[actions.addTodo](state, todo) {
+		state.todoList.push(todo)
+	},
+
+	[actions.setTodoList](state, todoList) {
+		let list = []
+		for (let key in todoList) {
+			list.push(todoList[key])
+		}
+		
+		state.todoList = list
 	}
-	
-	state.todoList = list
 }

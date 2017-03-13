@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import path from 'path'
 import name from 'vinyl-named'
 import stream from 'webpack-stream'
 import plumber from 'gulp-plumber'
@@ -24,7 +25,14 @@ const options = {
         }
     },
     plugins: [
-        new stream.webpack.NoErrorsPlugin()
+        new stream.webpack.NoErrorsPlugin(),
+        new stream.webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+                GOOGLE_KEY: JSON.stringify(process.env.GOOGLE_KEY),
+                GOOGLE_SENDER: JSON.stringify(process.env.GOOGLE_SENDER),
+            },
+        })
     ],
     module: {
         loaders: [{

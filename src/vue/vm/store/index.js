@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
-import * as mutations from './mutations'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
@@ -18,18 +18,7 @@ export default new Vuex.Store({
 		todoList: state => [...state.todoList]
 	},
 
-	actions: {
-		getUser: actions.getUser,
-		signIn: actions.signIn,
-		signOut: actions.signOut,
-		addTodo: actions.addTodo,
-		updateTodo: actions.updateTodo,
-		removeTodo: actions.removeTodo,
-		getTodoList: actions.getTodoList,
-	},
+	actions,
 
-	mutations: {
-		setUser: mutations.setUser,
-		setTodoList: mutations.setTodoList,
-	}
+	mutations
 })
